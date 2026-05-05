@@ -1,0 +1,13 @@
+{
+    "name": "@graphenks/g-mate",
+    "version": "0.0.0",
+    "description": "A bunch of graphics-related utility functions",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack build"
+    },
+    "keywords": [],
+    "author": "caspa2289",
+    "license": "MIT-Modern-Variant"
+}

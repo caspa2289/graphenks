@@ -1,12 +1,16 @@
 {
-    "name": "typescript-client-template-webpack",
-    "version": "1.0.0",
-    "description": "A template for browser projects using webpack",
+    "name": "graphenks",
+    "version": "0.0.0",
+    "description": "A bunch of puter graphics related stuff",
     "private": true,
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
+        "demo:dev": "npm run dev --workspace=packages/demos",
+        "demo:build": "npm run build --workspace=packages/demos",
+        "g-mate:build": "npm run build --workspace=packages/g-mate",
+        "softy-renderer:build": "npm run build --workspace=packages/softy-renderer",
+        "s-engine:build": "npm run build --workspace=packages/s-engine",
         "dev": "webpack serve --open --port 3000",
-        "prepare": "husky install",
         "build": "webpack build"
     },
     "keywords": [],
@@ -31,5 +35,11 @@
     "lint-staged": {
         "*.js": "eslint --cache --fix",
         "*.{js,css,md}": "prettier --write"
-    }
+    },
+    "workspaces": [
+        "packages/g-mate",
+        "packages/softy-renderer",
+        "packages/demos",
+        "packages/s-engine"
+    ]
 }

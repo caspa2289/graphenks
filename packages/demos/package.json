@@ -1,0 +1,14 @@
+{
+    "name": "@graphenks/demos",
+    "version": "0.0.0",
+    "description": "s-engine demo scenes",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "webpack serve --open --port 6969",
+        "build": "webpack build"
+    },
+    "keywords": [],
+    "author": "caspa2289",
+    "license": "MIT-Modern-Variant"
+}

@@ -1,0 +1,13 @@
+{
+    "name": "@graphenks/softy-renderer",
+    "version": "0.1.0",
+    "description": "A software renderer in js",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack build"
+    },
+    "keywords": [],
+    "author": "caspa2289",
+    "license": "MIT-Modern-Variant"
+}
