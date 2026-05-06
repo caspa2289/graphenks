@@ -1,0 +1,13 @@
+{
+    "name": "@graphenks/benchmarkus",
+    "version": "0.0.0",
+    "description": "A bunch of benchmarks for various js operations",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "webpack serve --open --port 1337"
+    },
+    "keywords": [],
+    "author": "caspa2289",
+    "license": "MIT-Modern-Variant"
+}

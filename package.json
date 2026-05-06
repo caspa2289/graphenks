@@ -10,6 +10,7 @@
         "g-mate:build": "npm run build --workspace=packages/g-mate",
         "softy-renderer:build": "npm run build --workspace=packages/softy-renderer",
         "s-engine:build": "npm run build --workspace=packages/s-engine",
+        "benchmarkus:dev": "npm run dev --workspace=packages/benchmarkus",
         "dev": "webpack serve --open --port 3000",
         "build": "webpack build"
     },
@@ -40,6 +41,7 @@
         "packages/g-mate",
         "packages/softy-renderer",
         "packages/demos",
-        "packages/s-engine"
+        "packages/s-engine",
+        "packages/benchmarkus"
     ]
 }
