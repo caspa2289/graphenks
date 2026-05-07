@@ -93,7 +93,7 @@ function normalize(v: AnyVector): AnyVector {
 }
 
 //Do that instead of static class properties because some sort of constructing still happens for static methods and me no like that
-export const Vector = {
+export const Vec = {
     new: new_,
     cross,
     dot,
