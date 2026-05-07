@@ -53,27 +53,16 @@ function dot(v0: AnyVector, v1: AnyVector): number {
     return v0[0] * v1[0] + v0[1] * v1[1] + (v0?.[2] ?? 0) * (v1?.[2] ?? 0)
 }
 
-function length(v: Vector2): number
-function length(v: Vector3): number
-function length(v: Vector4): number
-function length(v: AnyVector): number
 function length(v: AnyVector): number {
     return Math.sqrt(lengthSquared(v))
 }
 
 //this is suitable for most use cases
-function lengthSquared(v: Vector2): number
-function lengthSquared(v: Vector3): number
-function lengthSquared(v: Vector4): number
-function lengthSquared(v: AnyVector): number
 function lengthSquared(v: AnyVector): number {
     //To keep type safety. Don`t wanna make a separate function for that case alone
     return dot(v as Vector3, v as Vector3)
 }
 
-function normalize(v: Vector2): Vector2
-function normalize(v: Vector3): Vector3
-function normalize(v: Vector4): Vector4
 function normalize(v: AnyVector): AnyVector {
     const vectorLength = length(v)
 
