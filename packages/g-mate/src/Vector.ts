@@ -81,7 +81,6 @@ function normalize(v: AnyVector): AnyVector {
     return [v[0] / vectorLength, v[1] / vectorLength, v[2] / vectorLength]
 }
 
-//TODO: benchmark mut versions of these
 function add(v0: Vector2, v1: Vector2): Vector2
 function add(v0: Vector3, v1: Vector3): Vector3
 function add(v0: Vector4, v1: Vector4): Vector4
@@ -112,6 +111,36 @@ function subtract(v0: AnyVector, v1: AnyVector): AnyVector {
     return [v0[0] - v1[0], v0[1] - v1[1], v0[2] - (v1[2] as number)]
 }
 
+function multiply(v: Vector2, scalar: number): Vector2
+function multiply(v: Vector3, scalar: number): Vector3
+function multiply(v: Vector4, scalar: number): Vector4
+function multiply(v: AnyVector, scalar: number): AnyVector {
+    if (v.length === 4) {
+        return [v[0] * scalar, v[1] * scalar, v[2] * scalar, v[3]]
+    }
+
+    if (v.length === 2) {
+        return [v[0] * scalar, v[1] * scalar]
+    }
+
+    return [v[0] * scalar, v[1] * scalar, v[2] * scalar]
+}
+
+function divide(v: Vector2, scalar: number): Vector2
+function divide(v: Vector3, scalar: number): Vector3
+function divide(v: Vector4, scalar: number): Vector4
+function divide(v: AnyVector, scalar: number): AnyVector {
+    if (v.length === 4) {
+        return [v[0] / scalar, v[1] / scalar, v[2] / scalar, v[3]]
+    }
+
+    if (v.length === 2) {
+        return [v[0] / scalar, v[1] / scalar]
+    }
+
+    return [v[0] / scalar, v[1] / scalar, v[2] / scalar]
+}
+
 //Do that instead of static class properties because some sort of constructing still happens for static methods and me no like that
 export const Vec = {
     new: new_,
@@ -119,9 +148,12 @@ export const Vec = {
     dot,
     length,
     lengthSquared,
+    //TODO: benchmark mut versions of these
     normalize,
     add,
     subtract,
+    multiply,
+    divide,
 }
 
 //TODO: add some tests ffs
