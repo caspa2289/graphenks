@@ -1,9 +1,9 @@
 import { AnyVector, Vector2, Vector3, Vector4 } from './types'
 
-function new_(x?: number, y?: number): Vector2
-function new_(x?: number, y?: number, z?: number): Vector3
-function new_(x?: number, y?: number, z?: number, w?: number): Vector4
-function new_(x?: number, y?: number, z?: number, w?: number): AnyVector {
+function new_(x: number, y: number): Vector2
+function new_(x: number, y: number, z?: number): Vector3
+function new_(x: number, y: number, z?: number, w?: number): Vector4
+function new_(x: number, y: number, z?: number, w?: number): AnyVector {
     if (w) {
         return [x, y, z, w] as Vector4
     }
@@ -12,11 +12,7 @@ function new_(x?: number, y?: number, z?: number, w?: number): AnyVector {
         return [x, y, z] as Vector3
     }
 
-    if (!y) {
-        throw new Error('cannot construct a vector of length 1')
-    }
-
-    return [x, y] as Vector2
+    return [x, y]
 }
 
 function cross(v0: Vector2, v1: Vector2): Vector2
