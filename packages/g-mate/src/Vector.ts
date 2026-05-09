@@ -77,6 +77,16 @@ function normalize(v: AnyVector): AnyVector {
     return [v[0] / vectorLength, v[1] / vectorLength, v[2] / vectorLength]
 }
 
+function normalizeMut(v: AnyVector): void {
+    const vectorLength = length(v)
+
+    v[0] /= vectorLength
+    v[1] /= vectorLength
+    if (v[2]) {
+        v[2] /= vectorLength
+    }
+}
+
 function add(v0: Vector2, v1: Vector2): Vector2
 function add(v0: Vector3, v1: Vector3): Vector3
 function add(v0: Vector4, v1: Vector4): Vector4
@@ -90,6 +100,17 @@ function add(v0: AnyVector, v1: AnyVector): AnyVector {
     }
 
     return [v0[0] + v1[0], v0[1] + v1[1], v0[2] + (v1[2] as number)]
+}
+
+function addMut(v0: Vector2, v1: Vector2): void
+function addMut(v0: Vector3, v1: Vector3): void
+function addMut(v0: Vector4, v1: Vector4): void
+function addMut(v0: AnyVector, v1: AnyVector): void {
+    v0[0] += v1[0]
+    v0[1] += v1[1]
+    if (v0[2]) {
+        v0[2] += v1[2] as number
+    }
 }
 
 function subtract(v0: Vector2, v1: Vector2): Vector2
@@ -107,6 +128,17 @@ function subtract(v0: AnyVector, v1: AnyVector): AnyVector {
     return [v0[0] - v1[0], v0[1] - v1[1], v0[2] - (v1[2] as number)]
 }
 
+function subtractMut(v0: Vector2, v1: Vector2): void
+function subtractMut(v0: Vector3, v1: Vector3): void
+function subtractMut(v0: Vector4, v1: Vector4): void
+function subtractMut(v0: AnyVector, v1: AnyVector): void {
+    v0[0] -= v1[0]
+    v0[1] -= v1[1]
+    if (v0[2]) {
+        v0[2] -= v1[2] as number
+    }
+}
+
 function multiply(v: Vector2, scalar: number): Vector2
 function multiply(v: Vector3, scalar: number): Vector3
 function multiply(v: Vector4, scalar: number): Vector4
@@ -120,6 +152,17 @@ function multiply(v: AnyVector, scalar: number): AnyVector {
     }
 
     return [v[0] * scalar, v[1] * scalar, v[2] * scalar]
+}
+
+function multiplyMut(v: Vector2, scalar: number): void
+function multiplyMut(v: Vector3, scalar: number): void
+function multiplyMut(v: Vector4, scalar: number): void
+function multiplyMut(v: AnyVector, scalar: number): void {
+    v[0] *= scalar
+    v[1] *= scalar
+    if (v[2]) {
+        v[2] *= scalar
+    }
 }
 
 function divide(v: Vector2, scalar: number): Vector2
@@ -137,6 +180,17 @@ function divide(v: AnyVector, scalar: number): AnyVector {
     return [v[0] / scalar, v[1] / scalar, v[2] / scalar]
 }
 
+function divideMut(v: Vector2, scalar: number): void
+function divideMut(v: Vector3, scalar: number): void
+function divideMut(v: Vector4, scalar: number): void
+function divideMut(v: AnyVector, scalar: number): void {
+    v[0] /= scalar
+    v[1] /= scalar
+    if (v[2]) {
+        v[2] /= scalar
+    }
+}
+
 //Do that instead of static class properties because some sort of constructing still happens for static methods and me no like that
 export const Vec = {
     new: new_,
@@ -144,12 +198,19 @@ export const Vec = {
     dot,
     length,
     lengthSquared,
-    //TODO: benchmark mut versions of these
+    //DONE: benchmark mut versions of these
+    //mut versions are not faster, normalize is actually a tad slower
+    //but i`ll still leave them as an option for more flexible memory management
     normalize,
+    normalizeMut,
     add,
+    addMut,
     subtract,
+    subtractMut,
     multiply,
+    multiplyMut,
     divide,
+    divideMut,
 }
 
 //TODO: add some tests ffs
