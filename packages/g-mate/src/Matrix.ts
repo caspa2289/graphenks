@@ -70,10 +70,30 @@ const rotationGlobal = ({ x = 0, y = 0, z = 0 }): Matrix4 => {
     ]
 }
 
+const rotateGlobal = (m: Matrix4, { x = 0, y = 0, z = 0 }): Matrix4 => {
+    const sinX = Math.sin(x)
+    const cosX = Math.cos(x)
+
+    const sinY = Math.sin(y)
+    const cosY = Math.cos(y)
+
+    const sinZ = Math.sin(z)
+    const cosZ = Math.cos(z)
+
+    //prettier-ignore
+    return [
+        m[0] * cosY * cosZ, m[1] * sinZ, m[2] * sinY, m[3],
+        m[4] * -sinZ, m[5] * cosX * cosZ, m[6] * sinX, m[7],
+        m[8] * -sinY, m[9] * -sinX, m[10] * cosX * cosY, m[11],
+        m[12], m[13], m[14], m[15],
+    ]
+}
+
 export const Matrix = {
     identity,
     projection,
     translation,
     translate,
     rotationGlobal,
+    rotateGlobal,
 }
