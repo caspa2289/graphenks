@@ -1,6 +1,6 @@
 {
     "name": "@graphenks/softy-renderer",
-    "version": "0.1.0",
+    "version": "0.0.0",
     "description": "A software renderer in js",
     "private": true,
     "scripts": {
@@ -9,5 +9,9 @@
     },
     "keywords": [],
     "author": "caspa2289",
-    "license": "MIT-Modern-Variant"
+    "license": "MIT-Modern-Variant",
+    "dependencies": {
+        "@graphenks/s-engine": "0.0.0",
+        "@graphenks/loaders": "0.0.0"
+    }
 }

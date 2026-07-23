@@ -1,7 +1,7 @@
 {
-    "name": "@graphenks/s-engine",
+    "name": "@graphenks/loaders",
     "version": "0.0.0",
-    "description": "A game engine no one asked for",
+    "description": "Model loaders for s-engine",
     "private": true,
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,6 +12,6 @@
     "license": "MIT-Modern-Variant",
     "dependencies": {
         "@graphenks/g-mate": "0.0.0",
-        "@graphenks/softy-renderer": "0.0.0"
+        "@graphenks/s-engine": "0.0.0"
     }
 }

@@ -1,5 +1,5 @@
 import { Vec } from '@graphenks/g-mate'
-import { Mesh } from '../components/Mesh'
+import { Mesh } from '@graphenks/s-engine'
 
 export class ObjLoader {
     //FIXME: сделать загрузку по урлу

@@ -1,4 +1,4 @@
-import { SoftwareRenderer } from '../components/SoftwareRenderer'
+import { SoftwareRenderer } from '@graphenks/softy-renderer'
 import { DataLayerSystem } from '../systems/DataLayerSystem'
 import { Renderer } from '../types'
 
