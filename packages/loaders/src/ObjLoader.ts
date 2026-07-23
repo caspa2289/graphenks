@@ -18,15 +18,21 @@ v -1.000000 -1.000000 1.000000`.split('\n')
         let current = 0
 
         data.forEach((line: string) => {
-            if (line[0] === 'o') {
-                current++
-                rawData[current] = {
-                    vertexes: [],
-                    uvs: [],
-                    normals: [],
-                    textureId: 'default',
-                }
+            rawData[current] = {
+                vertexes: [],
+                uvs: [],
+                normals: [],
+                textureId: 'default',
             }
+            // if (line[0] === 'o') {
+            //     current++
+            //     rawData[current] = {
+            //         vertexes: [],
+            //         uvs: [],
+            //         normals: [],
+            //         textureId: 'default',
+            //     }
+            // }
 
             if (line[0] === 'v') {
                 const data = line.split(' ')
@@ -46,6 +52,8 @@ v -1.000000 -1.000000 1.000000`.split('\n')
                     )
                 }
             }
+
+            current++
         })
 
         return rawData

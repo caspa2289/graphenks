@@ -11,6 +11,7 @@ export class SEngine {
 
     constructor(canvas: HTMLCanvasElement) {
         this.#canvas = canvas
+        this._renderFrame = this._renderFrame.bind(this)
     }
 
     public async init() {
@@ -21,12 +22,12 @@ export class SEngine {
             throw new Error('Failed to initialize canvas context')
         }
 
-        requestAnimationFrame(this.#renderFrame)
+        requestAnimationFrame(this._renderFrame)
     }
 
-    #renderFrame() {
+    private _renderFrame() {
         this.#renderer.render(1000 / 60, this.#data)
-        requestAnimationFrame(this.#renderFrame)
+        // requestAnimationFrame(this._renderFrame)
     }
 
     get canvas() {

@@ -1,12 +1,14 @@
-import { DataLayer, Mesh, Renderer } from "@graphenks/s-engine"
-import { ObjLoader } from "@graphenks/loaders"
+import { DataLayer, Mesh, Renderer } from '@graphenks/s-engine'
+import { ObjLoader } from '@graphenks/loaders'
 
 export class SoftwareRenderer implements Renderer {
     #context!: CanvasRenderingContext2D | null
 
-    #meshes: Mesh[] //placeholder
+    #meshes: Mesh[] = [] //placeholder
 
-    constructor() {}
+    constructor() {
+        this.render = this.render.bind(this)
+    }
 
     public async init(canvas: HTMLCanvasElement) {
         this.#context = canvas.getContext('2d')
